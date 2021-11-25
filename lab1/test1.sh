@@ -39,5 +39,5 @@ dir_check '$y'
 
 if user_check "$"x && dir_check "$y"; then
 	sudo chown -R "$x" "$y" &>/dev/null 
-	echo -en "\033[42;34;2m !!User "$" was Successfully set for Directory "$y"!!"
+	echo -en "\033[42;34;2m !!User "$x" was Successfully set for Directory "$y"!!"
 fi
