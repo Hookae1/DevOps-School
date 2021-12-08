@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #Tell to the script to stop processing in case of non-true value
 set -e
 
