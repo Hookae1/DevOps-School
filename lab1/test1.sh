@@ -6,6 +6,14 @@ set -e
 #Enter <user name>
 read -p "Enter user name: " x
 
+#Checks root permissions
+
+root_check() {
+ 	 if ( $UID != 0 ); then
+    		echo -en "\033[31;47;1m User '$x' doesn't have root permissions"
+   		exit 1
+   	 fi
+}
 #User ckecking function
 
 user_check(){
@@ -35,9 +43,9 @@ dir_check(){
 
 dir_check '$y'
 
-#If both of the paramters is TRUE - Recursive change owner of the folder
+#Recursive changing owners of the directory
 
 if user_check "$"x && dir_check "$y"; then
-	sudo chown -R "$x" "$y" &>/dev/null 
+	chown -R "$x":"$x" "$y" &>/dev/null 
 	echo -en "\033[42;34;2m !!User "$x" was Successfully set for Directory "$y"!!"
 fi
